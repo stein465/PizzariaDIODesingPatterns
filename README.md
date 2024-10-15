@@ -66,9 +66,3 @@ Pedido realizado: Pizza Margherita - Tamanho: Grande
 Adicionais: Queijo Extra
 Preço total: R$ 45,00
 ```
-
-
-### Alterações Feitas:
-1. **Docker Compose**: Adicionadas instruções para rodar o projeto com Docker Compose, criando contêineres para a aplicação e o banco de dados MySQL.
-2. **Banco de Dados MySQL**: Informações sobre como acessar o banco de dados MySQL no ambiente Docker.
-3. **Melhorias Futuras**: Mantidas as sugestões de melhorias futuras para indicar que o projeto pode ser expandido.
