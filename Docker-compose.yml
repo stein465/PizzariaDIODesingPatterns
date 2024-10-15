@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  pizzaria_db:
+      image: mysql:8.0
+      container_name: pizzariaDB-container
+      environment:
+        MYSQL_ROOT_PASSWORD: admin
+        MYSQL_DATABASE: pizzariadb
+        MYSQL_USER: usuario
+        MYSQL_PASSWORD: senha
+      ports:
+        - "3306:3306"
+      volumes:
+        - db_data:/var/lib/mysql
+      healthcheck:
+        test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+
+
+
+
+  pizzaria:
+    build: .
+    container_name: pizzaria-container
+    environment:
+      SPRING_DATASOURCE_USER: usuario
+      SPRING_DATASOURCE_PASSWORD: senha
+      SPRING_DATASOURCE_URL: jdbc:mysql://pizzaria_db:3306/pizzariadb
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      pizzaria_db:
+        condition: service_healthy
+
+
+
+volumes:
+    db_data:

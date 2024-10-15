@@ -13,8 +13,6 @@ public class PedidoServiceImp implements PedidoService {
 
         @Autowired
         PedidoRepository pedidoRepository;
-        @Autowired
-        PedidoService pedidoService;
 
         @Override
         public Optional<Pedido> getPedidoById(Long id) {
